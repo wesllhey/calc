@@ -22,5 +22,5 @@ lex.yy.c: calc_lex.l
 	$(LEX) $^
 
 clean:
-	rm *.o
+	rm *.o calc
 
