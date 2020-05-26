@@ -47,4 +47,4 @@ syntax error
 > 4
 ```
 
-If you find some errors, plaese open an issue!
+If you find some errors, please open an issue!
