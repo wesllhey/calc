@@ -1,5 +1,6 @@
+#line 2 "calc_lexer.lex.c"
 
-#line 3 "lex.yy.c"
+#line 4 "calc_lexer.lex.c"
 
 #define  YY_INT_ALIGNED short int
 
@@ -455,13 +456,13 @@ int yy_flex_debug = 0;
 #define YY_MORE_ADJ 0
 #define YY_RESTORE_YY_MORE_OFFSET
 char *yytext;
-#line 1 "calc_lex.l"
-#line 2 "calc_lex.l"
+#line 1 "calc_lexer.l"
+#line 2 "calc_lexer.l"
 #include "calc_symbol_table.h"
 
-#include "y.tab.h"
-#line 464 "lex.yy.c"
-#line 465 "lex.yy.c"
+#include "calc_parser.tab.h"
+#line 465 "calc_lexer.lex.c"
+#line 466 "calc_lexer.lex.c"
 
 #define INITIAL 0
 
@@ -678,10 +679,10 @@ YY_DECL
 		}
 
 	{
-#line 7 "calc_lex.l"
+#line 7 "calc_lexer.l"
 
 
-#line 685 "lex.yy.c"
+#line 686 "calc_lexer.lex.c"
 
 	while ( /*CONSTCOND*/1 )		/* loops until end-of-file is reached */
 		{
@@ -740,81 +741,81 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 9 "calc_lex.l"
+#line 9 "calc_lexer.l"
 { calc_symbol_table_free(); exit(0); }
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 11 "calc_lex.l"
+#line 11 "calc_lexer.l"
 { yylval.d_value = atof(yytext); return NUMBER; }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 12 "calc_lex.l"
+#line 12 "calc_lexer.l"
 ;
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 14 "calc_lex.l"
+#line 14 "calc_lexer.l"
 { yylval.symbol = calc_symbol_table_retrieve_data_by_name(yytext); return NAME; }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 16 "calc_lex.l"
+#line 16 "calc_lexer.l"
 { return EQUALS; }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 17 "calc_lex.l"
+#line 17 "calc_lexer.l"
 { return OPEN_PARENTHESES; }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 18 "calc_lex.l"
+#line 18 "calc_lexer.l"
 { return CLOSE_PARENTHESES; }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 19 "calc_lex.l"
+#line 19 "calc_lexer.l"
 { return PLUS; }  
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 20 "calc_lex.l"
+#line 20 "calc_lexer.l"
 { return MINUS; } 
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 21 "calc_lex.l"
+#line 21 "calc_lexer.l"
 { return MULT; } 
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 22 "calc_lex.l"
+#line 22 "calc_lexer.l"
 { return DIV; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 23 "calc_lex.l"
+#line 23 "calc_lexer.l"
 { return 0; }
 	YY_BREAK
 case 13:
 /* rule 13 can match eol */
 YY_RULE_SETUP
-#line 24 "calc_lex.l"
+#line 24 "calc_lexer.l"
 { return EOL; }
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 25 "calc_lex.l"
+#line 25 "calc_lexer.l"
 return yytext[0];   
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 26 "calc_lex.l"
+#line 26 "calc_lexer.l"
 ECHO;
 	YY_BREAK
-#line 818 "lex.yy.c"
+#line 819 "calc_lexer.lex.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1819,6 +1820,6 @@ void yyfree (void * ptr )
 
 #define YYTABLES_NAME "yytables"
 
-#line 26 "calc_lex.l"
+#line 26 "calc_lexer.l"
 
 

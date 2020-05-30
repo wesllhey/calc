@@ -1,25 +1,25 @@
-LEX = lex -I
-YACC = yacc
+FLEX = flex
+BISON = bison
 
 CC = gcc -Wall -g
 
 all: calc
 
-calc: calc_symbol_table.o y.tab.o lex.yy.o
+calc: calc_symbol_table.o calc_parser.tab.o calc_lexer.lex.o
 	$(CC) -o $@ $^ -ly -ll -lm
 	
 calc_symbol_table.o: calc_symbol_table.c
 	$(CC) -c $^
 
-lex.yy.o: lex.yy.c y.tab.h
+calc_lexer.lex.o: calc_lexer.lex.c
 
-lex.yy.o y.tab.o: calc_symbol_table.h
+calc_parser.tab.o: calc_parser.tab.c
 
-y.tab.c y.tab.h: calc_parser.y
-	$(YACC) -d $^
+calc_parser.tab.c: calc_parser.y
+	$(BISON) -d $^
 
-lex.yy.c: calc_lex.l
-	$(LEX) $^
+calc_lexer.lex.c: calc_lexer.l
+	$(FLEX) -o $@ $^
 
 clean:
 	rm *.o calc

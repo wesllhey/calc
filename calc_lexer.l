@@ -1,7 +1,7 @@
 %{
 #include "calc_symbol_table.h"
 
-#include "y.tab.h"
+#include "calc_parser.tab.h"
 %}
 
 %%

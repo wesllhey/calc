@@ -29,37 +29,54 @@ extern int yylex();
 %nonassoc UNIMUS
 
 %%
-statement_list:     { printf("> "); } 
-    |               statement_list statement EOL
-    |               statement_list EOL { printf("> "); }
+statement_list:     
+    { printf("> "); } 
+    |               
+    statement_list statement EOL
+    |               
+    statement_list EOL { printf("> "); }
     ;
 
-statement:          NAME EQUALS expression { $1->value = $3; printf("> "); }
-    |               expression { printf("> %g\n> ", $1); }
+statement:          
+    NAME EQUALS expression { $1->value = $3; printf("> "); }
+    |               
+    expression { printf("> %g\n> ", $1); }
     ;
 
-expression:         factor
-    |               expression PLUS expression { $$ = $1 + $3; }   
-    |               expression MINUS expression { $$ = $1 - $3; }
-    |               MINUS expression %prec UNIMUS { $$ = -$2; }
+expression:         
+    factor
+    |               
+    expression PLUS expression { $$ = $1 + $3; }   
+    |               
+    expression MINUS expression { $$ = $1 - $3; }
+    |               
+    MINUS expression %prec UNIMUS { $$ = -$2; }
     ;
 
-factor:             term
-    |               factor MULT factor { $$ = $1 * $3; } 
-    |               factor DIV factor { if ($3 == 0.0) yyerror("divid by zero"); else $$ = $1 / $3; }
+factor:             
+    term
+    |               
+    factor MULT factor { $$ = $1 * $3; } 
+    |               
+    factor DIV factor { if ($3 == 0.0) yyerror("divid by zero"); else $$ = $1 / $3; }
     ;
 
-term:               NUMBER
-    |               NAME    { $$ = $1->value; }
-    |               OPEN_PARENTHESES expression CLOSE_PARENTHESES { $$ = $2; }
-    |               NAME OPEN_PARENTHESES expression CLOSE_PARENTHESES {     
-                        if ($1->func_ptr) {
-                            $$ = ($1->func_ptr)($3);
-                        } else {
-                            printf("%s not a function\n", $1->name);
-                            $$ = 0.0;
-                        }
-                    }
+term:               
+    NUMBER
+    |               
+    NAME    { $$ = $1->value; }
+    |               
+    OPEN_PARENTHESES expression CLOSE_PARENTHESES { $$ = $2; }
+    |               
+    NAME OPEN_PARENTHESES expression CLOSE_PARENTHESES 
+    {     
+        if ($1->func_ptr) {
+            $$ = ($1->func_ptr)($3);
+        } else {
+            printf("%s not a function\n", $1->name);
+            $$ = 0.0;
+        }
+    }
     ;
 %%
 
