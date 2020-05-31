@@ -3,7 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "calc_symbol_table.h"
+#include "symbol_table.h"
 
 extern void yyerror(char *s);
 extern int yylex();
@@ -11,7 +11,7 @@ extern int yylex();
 
 %union {
     double d_value;
-    calc_symbol_table_data_t *symbol;
+    symbol_table_data_t *symbol;
 }
 
 %token PLUS MINUS DIV MULT OPEN_PARENTHESES CLOSE_PARENTHESES EQUALS EOL
@@ -88,7 +88,7 @@ void yyerror(
 
 int main(void)
 {  
-    calc_symbol_table_init();
+    symbol_table_init();
     yyparse();
-    calc_symbol_table_free();
+    symbol_table_free();
 }

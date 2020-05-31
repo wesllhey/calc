@@ -62,18 +62,18 @@
 
 
 /* Copy the first part of user declarations.  */
-#line 1 "calc_parser.y" /* yacc.c:339  */
+#line 1 "parser.y" /* yacc.c:339  */
 
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
 
-#include "calc_symbol_table.h"
+#include "symbol_table.h"
 
 extern void yyerror(char *s);
 extern int yylex();
 
-#line 77 "calc_parser.tab.c" /* yacc.c:339  */
+#line 77 "parser.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -92,9 +92,9 @@ extern int yylex();
 #endif
 
 /* In a future release of Bison, this section will be replaced
-   by #include "calc_parser.tab.h".  */
-#ifndef YY_YY_CALC_PARSER_TAB_H_INCLUDED
-# define YY_YY_CALC_PARSER_TAB_H_INCLUDED
+   by #include "parser.tab.h".  */
+#ifndef YY_YY_PARSER_TAB_H_INCLUDED
+# define YY_YY_PARSER_TAB_H_INCLUDED
 /* Debug traces.  */
 #ifndef YYDEBUG
 # define YYDEBUG 0
@@ -127,12 +127,12 @@ extern int yydebug;
 
 union YYSTYPE
 {
-#line 12 "calc_parser.y" /* yacc.c:355  */
+#line 12 "parser.y" /* yacc.c:355  */
 
     double d_value;
-    calc_symbol_table_data_t *symbol;
+    symbol_table_data_t *symbol;
 
-#line 136 "calc_parser.tab.c" /* yacc.c:355  */
+#line 136 "parser.tab.c" /* yacc.c:355  */
 };
 
 typedef union YYSTYPE YYSTYPE;
@@ -145,11 +145,11 @@ extern YYSTYPE yylval;
 
 int yyparse (void);
 
-#endif /* !YY_YY_CALC_PARSER_TAB_H_INCLUDED  */
+#endif /* !YY_YY_PARSER_TAB_H_INCLUDED  */
 
 /* Copy the second part of user declarations.  */
 
-#line 153 "calc_parser.tab.c" /* yacc.c:358  */
+#line 153 "parser.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1231,73 +1231,73 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 33 "calc_parser.y" /* yacc.c:1646  */
+#line 33 "parser.y" /* yacc.c:1646  */
     { printf("> "); }
-#line 1237 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1237 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 37 "calc_parser.y" /* yacc.c:1646  */
+#line 37 "parser.y" /* yacc.c:1646  */
     { printf("> "); }
-#line 1243 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1243 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 41 "calc_parser.y" /* yacc.c:1646  */
+#line 41 "parser.y" /* yacc.c:1646  */
     { (yyvsp[-2].symbol)->value = (yyvsp[0].d_value); printf("> "); }
-#line 1249 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1249 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 43 "calc_parser.y" /* yacc.c:1646  */
+#line 43 "parser.y" /* yacc.c:1646  */
     { printf("> %g\n> ", (yyvsp[0].d_value)); }
-#line 1255 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1255 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 49 "calc_parser.y" /* yacc.c:1646  */
+#line 49 "parser.y" /* yacc.c:1646  */
     { (yyval.d_value) = (yyvsp[-2].d_value) + (yyvsp[0].d_value); }
-#line 1261 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1261 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 51 "calc_parser.y" /* yacc.c:1646  */
+#line 51 "parser.y" /* yacc.c:1646  */
     { (yyval.d_value) = (yyvsp[-2].d_value) - (yyvsp[0].d_value); }
-#line 1267 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1267 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 53 "calc_parser.y" /* yacc.c:1646  */
+#line 53 "parser.y" /* yacc.c:1646  */
     { (yyval.d_value) = -(yyvsp[0].d_value); }
-#line 1273 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1273 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 59 "calc_parser.y" /* yacc.c:1646  */
+#line 59 "parser.y" /* yacc.c:1646  */
     { (yyval.d_value) = (yyvsp[-2].d_value) * (yyvsp[0].d_value); }
-#line 1279 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1279 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 61 "calc_parser.y" /* yacc.c:1646  */
+#line 61 "parser.y" /* yacc.c:1646  */
     { if ((yyvsp[0].d_value) == 0.0) yyerror("divid by zero"); else (yyval.d_value) = (yyvsp[-2].d_value) / (yyvsp[0].d_value); }
-#line 1285 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1285 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 67 "calc_parser.y" /* yacc.c:1646  */
+#line 67 "parser.y" /* yacc.c:1646  */
     { (yyval.d_value) = (yyvsp[0].symbol)->value; }
-#line 1291 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1291 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 69 "calc_parser.y" /* yacc.c:1646  */
+#line 69 "parser.y" /* yacc.c:1646  */
     { (yyval.d_value) = (yyvsp[-1].d_value); }
-#line 1297 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1297 "parser.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 72 "calc_parser.y" /* yacc.c:1646  */
+#line 72 "parser.y" /* yacc.c:1646  */
     {     
         if ((yyvsp[-3].symbol)->func_ptr) {
             (yyval.d_value) = ((yyvsp[-3].symbol)->func_ptr)((yyvsp[-1].d_value));
@@ -1306,11 +1306,11 @@ yyreduce:
             (yyval.d_value) = 0.0;
         }
     }
-#line 1310 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1310 "parser.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1314 "calc_parser.tab.c" /* yacc.c:1646  */
+#line 1314 "parser.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1538,7 +1538,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 81 "calc_parser.y" /* yacc.c:1906  */
+#line 81 "parser.y" /* yacc.c:1906  */
 
 
 void yyerror(
@@ -1549,7 +1549,7 @@ void yyerror(
 
 int main(void)
 {  
-    calc_symbol_table_init();
+    symbol_table_init();
     yyparse();
-    calc_symbol_table_free();
+    symbol_table_free();
 }

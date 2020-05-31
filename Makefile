@@ -5,20 +5,20 @@ CC = gcc -Wall -g
 
 all: calc
 
-calc: calc_symbol_table.o calc_parser.tab.o calc_lexer.lex.o
+calc: symbol_table.o parser.tab.o lexer.lex.o
 	$(CC) -o $@ $^ -ly -ll -lm
 	
-calc_symbol_table.o: calc_symbol_table.c
+symbol_table.o: symbol_table.c
 	$(CC) -c $^
 
-calc_lexer.lex.o: calc_lexer.lex.c
+lexer.lex.o: lexer.lex.c
 
-calc_parser.tab.o: calc_parser.tab.c
+parser.tab.o: parser.tab.c
 
-calc_parser.tab.c: calc_parser.y
+parser.tab.c: parser.y
 	$(BISON) -d $^
 
-calc_lexer.lex.c: calc_lexer.l
+lexer.lex.c: lexer.l
 	$(FLEX) -o $@ $^
 
 clean:
